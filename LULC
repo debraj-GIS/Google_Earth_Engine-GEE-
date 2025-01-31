@@ -1,3 +1,5 @@
+import the area of interest shapefile from assest
+
 // Load Area of Interest (AOI)
 
 Map.addLayer(AOI, {}, 'West Bardhaman');
@@ -15,7 +17,7 @@ var L5 = ee.ImageCollection("LANDSAT/LT05/C02/T1_L2")
 
 // Load Satellite Image of Landsat 5
 
-Map.addLayer(L5, imageVisParam, 'Landsat 5');
+Map.addLayer(L5, imageVisParam, 'Landsat 5'); //import the visulazitaion paramiter for landsat 5 image
 
 var training = (Waterbody).merge(Vegetation)
                           .merge(Buildup_Area)
@@ -55,10 +57,9 @@ var classifier = ee.Classifier.smileCart().train(trainSet, label, bands);
 var classified = input.classify(classifier)
 print(classified);
 
-// Visualization Parameters for Classified Image
-var imageVisParam2 = {min: 0, max: 6, palette: ['blue', 'green', 'red', 'yellow', 'brown', 'grey', 'white']};
+// Load the Classified Image
 
-Map.addLayer(classified, imageVisParam2, 'classification');	
+Map.addLayer(classified, imageVisParam2, 'classification'); //Import the visualization parameters for Classification image as name imageVisParam2	
 
 // Export the Classified Image to Google Drive
 Export.image.toDrive({
