@@ -1,4 +1,4 @@
-import the area of interest shapefile from assest
+// import the area of interest shapefile from assest
 
 // Load Area of Interest (AOI)
 
